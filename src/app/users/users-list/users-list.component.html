@@ -1,0 +1,19 @@
+<app-users-actions-toolbar (selectAllEventNotify)="selectAll()" (deleteItemsEventNotify)="deleteItems()"
+    (sortItemsAscEventNotify)="sortItemsAsc()" (sortItemsDscEventNotify)="sortItemsDesc()"
+    (searchEventNotify)="setSearchTerm($event)"></app-users-actions-toolbar>
+
+<div class='card-container'>
+    <mat-card class="users-card" *ngFor="let card of getFilteredUsers()">
+        <mat-checkbox [ngClass]="[card.isSelected === true?'mat-checkbox-checked': 'mat-checkbox-unchecked']"
+            class="users-checkbox" [(ngModel)]="card.isSelected">
+        </mat-checkbox>
+        <img class="users-img" mat-card-image src="{{card.imgPath}}" alt='image'>
+        <mat-card-content>
+            <div>Id: {{card.id}}</div>
+            <div>First name: {{card.firstname}}</div>
+            <div>Last name: {{card.lastname}}</div>
+            <div>Email: {{card.email}}</div>
+            <div>Phone {{card.phone}}</div>
+        </mat-card-content>
+    </mat-card>
+</div>

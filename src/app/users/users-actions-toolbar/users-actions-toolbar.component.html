@@ -1,0 +1,17 @@
+<mat-toolbar class="actions-container">
+    <div>
+        <button mat-button color='primary' (click)="selectAll()">Select all</button>
+        <button mat-button color='primary' (click)="deleteItems()">Delete</button>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-select placeholder='Sorting order'>
+                <mat-option value='A-Z' (click)="sortItemsAsc()">A-Z</mat-option>
+                <mat-option value='Z-A' (click)="sortItemsDesc()">Z-A</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <input #searchInput matInput placeholder="Search users" (input)="search(searchInput.value)">
+    </div>
+</mat-toolbar>
