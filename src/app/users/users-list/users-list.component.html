@@ -1,3 +1,6 @@
+<app-users-form (newUserAddedEvent)="addUser($event)">
+</app-users-form>
+
 <app-users-actions-toolbar (selectAllEventNotify)="selectAll()" (deleteItemsEventNotify)="deleteItems()"
     (sortItemsAscEventNotify)="sortItemsAsc()" (sortItemsDscEventNotify)="sortItemsDesc()"
     (searchEventNotify)="setSearchTerm($event)"></app-users-actions-toolbar>

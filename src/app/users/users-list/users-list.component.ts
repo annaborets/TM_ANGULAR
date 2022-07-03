@@ -36,8 +36,10 @@ export class UsersListComponent implements OnInit {
     return this.users.filter(user => user.lastname.toLowerCase().indexOf(this.searchTerm) !== -1)
   }
 
-  deleteItems() {
-    this.users = this.users.filter(item => item.isSelected !== true)
+  deleteItems(): void {
+    const selectedUsers = this.users.filter(item => item.isSelected === true);
+    this.users = this.users.filter(item => item.isSelected !== true);
+    selectedUsers.forEach(user => this.usersService.deleteUser(user.id).subscribe());
   }
 
   sortItemsAsc() {
@@ -56,5 +58,12 @@ export class UsersListComponent implements OnInit {
 
   setSearchTerm(term: string) {
     this.searchTerm = term;
+  }
+
+  addUser(user: User) {
+    this.users = [
+      { ...user, isSelected: false, imgPath: MOCK_IMG_PATH },
+      ...this.users
+    ]
   }
 }

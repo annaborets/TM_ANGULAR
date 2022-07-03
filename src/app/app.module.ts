@@ -28,11 +28,12 @@ import { UsersModule } from './users/users.module';
     MatCheckboxModule,
     MatButtonModule,
     MatSelectModule,
-    MatFormFieldModule,
     FormsModule,
     MatSortModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
